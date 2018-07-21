@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+    <display-name>Java Web Apps Demo</display-name>
+    <description>
+        Tutorial examples of Java web applications.
+    </description>
+
+    <context-param>
+        <param-name>webmaster</param-name>
+        <param-value>your@email.address</param-value>
+    </context-param>
+    <description>
+        The EMAIL address of the administrator to whom questions
+        and comments about this application should be addressed.
+    </description>
+
+    <servlet>
+        <servlet-name>Hi</servlet-name>
+
+        <servlet-class>servlets.MyServlets</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Hi</servlet-name>
+        <url-pattern>/Hi</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DBtest</servlet-name>
+        <servlet-class>servlets.DBtest</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DBtest</servlet-name>
+        <url-pattern>/DBtest</url-pattern>
+    </servlet-mapping>
+
+</web-app>

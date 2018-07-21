@@ -1,23 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: serevarno
-  Date: 09.07.2018
-  Time: 2:53
+  Date: 21.07.2018
+  Time: 0:59
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>DataBase Test</title>
 </head>
 <body>
-Current time: <%= new java.util.Date() %>
-<br><br>
-    <h1>${textA}</h1>
-    <p>${textB}</p>
 
-<h3>${dbResult}</h3>
-
+<h2>Data from database</h2>
+<p></p>
 
 </body>
 </html>
