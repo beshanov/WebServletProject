@@ -13,4 +13,9 @@
     <input type="submit" value="Submit">
 </form>
 
+<form action="/blog/Show">
+    Просмотреть все записи
+    <input type="submit" value="Submit">
+</form>
+
 </body></html>

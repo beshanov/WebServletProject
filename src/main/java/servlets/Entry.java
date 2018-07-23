@@ -1,7 +1,19 @@
 package servlets;
 
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.Setter;
+import lombok.experimental.FieldDefaults;
+
+@Data
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Entry {
-    private String text;
-    private int entry_id;
+    String data;
+    int id;
     private String created;
+
+    @Override
+    public String toString(){
+        return data + " || " + created;
+    }
 }

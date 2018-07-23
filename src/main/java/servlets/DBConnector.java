@@ -72,8 +72,37 @@ public class DBConnector {
         return passwords;
     }
 
-   /* public static void main(String[] args) {
+    public List<Entry> getAllEntries() {
+        List<Entry> entries = new ArrayList<Entry>();
+        con = getConnectonInstance();
+        String sql = "SELECT data, created, entry_id FROM schema1.blog";
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                Entry entry = new Entry();
+                entry.setData(rs.getString("data"));
+                entry.setCreated(rs.getString("created"));
+                entry.setId(rs.getInt("entry_id"));
+                entries.add(entry);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                stmt.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+            return entries;
+        }
+    }
+
+    /*public static void main(String[] args) {
         DBConnector db = new DBConnector();
-        System.out.println(db.getPasswords());
+        System.out.println(db.getAllEntyes());
     }*/
 }
