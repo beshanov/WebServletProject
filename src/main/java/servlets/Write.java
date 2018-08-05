@@ -1,5 +1,7 @@
 package servlets;
 
+import database.DBConnector;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +26,7 @@ public class Write extends HttpServlet {
         if(dbConnector.getPasswords().contains(request.getParameter("password"))) {
             dbConnector.addEntry(request.getParameter("data"));
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/blog/add_data.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/blog/add_data.html");
         dispatcher.forward(request, response);
     }
 

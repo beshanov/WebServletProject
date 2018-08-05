@@ -1,4 +1,4 @@
-package servlets;
+package database;
 
 
 import javax.servlet.ServletException;

@@ -1,4 +1,7 @@
-package servlets;
+package database;
+
+import entities.Entry;
+import json.JsonWriter;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -82,7 +85,7 @@ public class DBConnector {
             while (rs.next()) {
                 Entry entry = new Entry();
                 entry.setData(rs.getString("data"));
-                entry.setCreated(rs.getString("created"));
+                entry.setCreated(rs.getString("created").substring(0,16));
                 entry.setId(rs.getInt("entry_id"));
                 entries.add(entry);
             }
@@ -96,13 +99,12 @@ public class DBConnector {
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-
             return entries;
         }
     }
 
     /*public static void main(String[] args) {
         DBConnector db = new DBConnector();
-        System.out.println(db.getAllEntyes());
+        System.out.println(JsonWriter.returnEntryListJson(db.getAllEntries()));
     }*/
 }

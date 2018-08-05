@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Web Blog</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+    <script  type='text/javascript' src='script.js'></script>
+</head>
+
+<body bgcolor="white">
+<div>
+    <div>HTML
+        <form action="/blog/Write">
+            Enter text:<br>
+            <textarea name="data" rows="10" cols="60"></textarea>
+            <br>
+            Password: <input type="text" name="password" value="" size="30">
+            <br>
+            <input type="submit" value="Post">
+        </form>
+    </div>
+    <div id = "showDiv", background-color="maroon">
+        <form action="/blog/Show">
+            <input id="newButton" type="submit" value="Show on another page">
+        </form>
+    </div>
+    <button id="showButton">Show messages here with AJAX</button>
+    <div id="posts"></div>
+</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package servlets;
+package entities;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -14,6 +14,6 @@ public class Entry {
 
     @Override
     public String toString(){
-        return data + " || " + created;
+        return data + " || " + created + "\n";
     }
 }
