@@ -1,12 +1,21 @@
 $(document).ready(function () {
-    console.log("js is working");
+
+    $.get("Show", function (responseJson) {
+        refreshPostList(responseJson);
+    });
+
     $("#showButton").on("click", function () {
-        console.log("button is working");
+        $("#list").remove();
         $.get("Show", function (responseJson) {
-            var $ul = $("<ul>").appendTo($("#posts"))
-            $.each(responseJson, function (index, item) {
-                $("<li>").text(item.data).appendTo($ul).append(item.created);
-            })
+            refreshPostList(responseJson);
         });
     });
+
+    function refreshPostList (jsonResponse) {
+        var $ul = $("<ul id = 'list'>").appendTo($("#posts"))
+        $.each(jsonResponse, function (index, item) {
+            $("<li>").text(item.created).appendTo($ul).append("  :  ").append(item.data);
+        })
+    }
+
 });

@@ -17,26 +17,4 @@
         The EMAIL address of the administrator to whom questions
         and comments about this application should be addressed.
     </description>
-
-    <servlet>
-        <servlet-name>Hi</servlet-name>
-
-        <servlet-class>servlets.MyServlets</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Hi</servlet-name>
-        <url-pattern>/Hi</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>DBtest</servlet-name>
-        <servlet-class>servlets.DBtest</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>DBtest</servlet-name>
-        <url-pattern>/DBtest</url-pattern>
-    </servlet-mapping>
-
 </web-app>
