@@ -1,6 +1,7 @@
 package servlets;
 
 import database.DBConnector;
+import database.EntryDao;
 import json.JsonWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,9 +17,9 @@ public class Show extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DBConnector dbConnector = new DBConnector();
+        EntryDao entryDao = new EntryDao();
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(JsonWriter.returnEntryListJson(dbConnector.getAllEntries()));
+        response.getWriter().write(JsonWriter.returnEntryListJson(entryDao.getAllEntries()));
     }
 }

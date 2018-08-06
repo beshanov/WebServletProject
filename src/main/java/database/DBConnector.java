@@ -16,7 +16,7 @@ public class DBConnector {
     private PreparedStatement ps;
     private ResultSet rs;
 
-    public Connection getConnectonInstance() {
+    public Connection getConnectionInstance() {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
@@ -31,29 +31,11 @@ public class DBConnector {
         return conn;
     }
 
-    public void addEntry(String data) {
-        data = data != null ? data : "";
-        try{
-            con = getConnectonInstance();
-            String sql = "INSERT INTO schema1.blog (data, created) VALUES (?, now())";
-            ps = con.prepareStatement(sql);
-            ps.setString(1, data);
-            ps.executeQuery().close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                ps.close();
-                con.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+
 
     public List<String> getPasswords() {
         List<String> passwords = new ArrayList<String>();
-        con = getConnectonInstance();
+        con = getConnectionInstance();
         String sql = "SELECT passwd FROM schema1.blog_pass";
         try {
             stmt = con.createStatement();
@@ -73,34 +55,6 @@ public class DBConnector {
             }
         }
         return passwords;
-    }
-
-    public List<Entry> getAllEntries() {
-        List<Entry> entries = new ArrayList<Entry>();
-        con = getConnectonInstance();
-        String sql = "SELECT data, created, entry_id FROM schema1.blog";
-        try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                Entry entry = new Entry();
-                entry.setData(rs.getString("data"));
-                entry.setCreated(rs.getString("created").substring(0,16));
-                entry.setId(rs.getInt("entry_id"));
-                entries.add(entry);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                rs.close();
-                stmt.close();
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-            return entries;
-        }
     }
 
     /*public static void main(String[] args) {

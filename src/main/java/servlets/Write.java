@@ -1,6 +1,8 @@
 package servlets;
 
 import database.DBConnector;
+import database.EntryDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,9 +23,10 @@ public class Write extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         DBConnector dbConnector = new DBConnector();
+        EntryDao entryDao = new EntryDao();
 
         if(dbConnector.getPasswords().contains(request.getParameter("password"))) {
-            dbConnector.addEntry(request.getParameter("data"));
+            entryDao.addEntry(request.getParameter("data"));
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/blog/add_data.html");
         dispatcher.forward(request, response);

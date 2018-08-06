@@ -6,13 +6,9 @@ import lombok.experimental.FieldDefaults;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Entry {
-    String data;
+public class User {
+    String name;
+    String email;
+    String password;
     int id;
-    String created;
-
-    @Override
-    public String toString(){
-        return data + " || " + created + "\n";
-    }
 }
