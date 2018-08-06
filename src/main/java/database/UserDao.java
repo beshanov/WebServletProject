@@ -8,7 +8,6 @@ import java.util.List;
 
 public class UserDao {
     DBConnector connector = new DBConnector();
-
     private Connection con;
     private Statement stmt;
     private PreparedStatement ps;

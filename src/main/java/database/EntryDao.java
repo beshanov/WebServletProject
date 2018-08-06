@@ -21,11 +21,12 @@ public class EntryDao {
             String sql = "INSERT INTO schema1.blog (data, created) VALUES (?, now())";
             ps = con.prepareStatement(sql);
             ps.setString(1, data);
-            ps.executeQuery().close();
+            rs = ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             try {
+                rs.close();
                 ps.close();
                 con.close();
             } catch (SQLException e) {
@@ -34,11 +35,10 @@ public class EntryDao {
         }
     }
 
-
     public List<Entry> getAllEntries() {
         List<Entry> entries = new ArrayList<Entry>();
         con = connector.getConnectionInstance();
-        String sql = "SELECT data, created, entry_id FROM schema1.blog";
+        String sql = "SELECT data, created, entry_id FROM schema1.blog ORDER BY created DESC";
         try {
             stmt = con.createStatement();
             rs = stmt.executeQuery(sql);

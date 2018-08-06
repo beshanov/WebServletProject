@@ -6,15 +6,6 @@
 
     <display-name>Java Web Apps Demo</display-name>
     <description>
-        Tutorial examples of Java web applications.
-    </description>
-
-    <context-param>
-        <param-name>webmaster</param-name>
-        <param-value>your@email.address</param-value>
-    </context-param>
-    <description>
-        The EMAIL address of the administrator to whom questions
-        and comments about this application should be addressed.
+        servlet training
     </description>
 </web-app>

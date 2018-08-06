@@ -1,6 +1,5 @@
 package servlets;
 
-import database.DBConnector;
 import database.EntryDao;
 import json.JsonWriter;
 import javax.servlet.ServletException;

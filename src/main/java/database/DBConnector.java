@@ -31,32 +31,6 @@ public class DBConnector {
         return conn;
     }
 
-
-
-    public List<String> getPasswords() {
-        List<String> passwords = new ArrayList<String>();
-        con = getConnectionInstance();
-        String sql = "SELECT passwd FROM schema1.blog_pass";
-        try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(sql);
-            while (rs.next()){
-                passwords.add(rs.getString("passwd"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                rs.close();
-                stmt.close();
-                con.close();
-            } catch (SQLException e){
-                e.printStackTrace();
-            }
-        }
-        return passwords;
-    }
-
     /*public static void main(String[] args) {
         DBConnector db = new DBConnector();
         System.out.println(JsonWriter.returnEntryListJson(db.getAllEntries()));
