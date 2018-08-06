@@ -16,17 +16,16 @@ public class EntryDao {
 
     public void addEntry(String data) {
         data = data != null ? data : "";
+        con = connector.getConnectionInstance();
+        String sql = "INSERT INTO schema1.blog (data, created) VALUES (?, now())";
         try{
-            con = connector.getConnectionInstance();
-            String sql = "INSERT INTO schema1.blog (data, created) VALUES (?, now())";
             ps = con.prepareStatement(sql);
             ps.setString(1, data);
-            rs = ps.executeQuery();
+            ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             try {
-                rs.close();
                 ps.close();
                 con.close();
             } catch (SQLException e) {
